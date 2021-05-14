@@ -1,7 +1,7 @@
 # Beakjoon 단계별로 풀어보기
 
-스텝 링크
-https://www.acmicpc.net/step
+하루에 한문제씩 풀면서 알고리즘 정복하기
+링크 - https://www.acmicpc.net/step
 
 1. 해당 저장소 클론 
 2. 단계별로 각자의 이름을 가지는 폴더 생성
