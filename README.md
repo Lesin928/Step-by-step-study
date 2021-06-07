@@ -1,7 +1,7 @@
 Beakjoon 단계별로 풀어보기
 =============
 
-![](https://github.com/Hamsik2rang/SA24-Algorithm-Study/blob/main/Image_WIKI/Register_BOJ_Turotrial/1.png?raw=true)
+![](https://github.com/Lesin928/Step-by-step-study/blob/master/image/C%23%EC%8A%A4%ED%84%B0%EB%94%94.PNG)
 
 해당 스터디는 유니티 공부와 병행하여 진행하는 C# 스터디이자, 복학을 준비하는 휴학생,    C#을 공부하고자 하는 학생, 방학이되어 뭐라도 해야겠다 생각하는 학생들을 위한 C# 스터디입니다.
 
