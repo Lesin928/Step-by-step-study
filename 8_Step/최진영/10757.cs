@@ -8,64 +8,67 @@ namespace _10757
 {
     class Program
     {
-        static void plus(char[] b,char[] c)
+        static void plus(long a,char[] b,char[] c)
         {
-            
-            int count = 0;
-            Console.WriteLine(b.Length);
-            Console.WriteLine(c.Length);
-            if (b.Length >= c.Length)
+            long[] bb = new long[a];
+            long[] cc = new long[a];
+            for(int k=0;k<a;k++)
             {
-                count = b.Length;
-                Array.Resize(ref c, b.Length);
-                Console.WriteLine(c.Length);
-                for (int k = 0; k < b.Length - c.Length; k++)
-                {
-                    c[c.Length-k]='0';
-                }
-                Console.WriteLine(c);
+                bb[k] = Convert.ToInt32(b[k])-48;
+                cc[k] = Convert.ToInt32(c[k])-48;
             }
-            else if(b.Length<c.Length)
+
+            long[] result = new long[a+1];
+            for (int j = 0; j < a; j++)
             {
-                count = c.Length;
-                Array.Resize(ref b, c.Length);
-                Console.WriteLine(b.Length);
-                for (int k = 0; k < c.Length - b.Length; k++)
-                {
-                    b[b.Length - k] = '0';
-                }
-                Console.WriteLine(c);
-            }
-            int[] result = new int[count + 1];
-            for (int j = 0; j < count; j++)
-            {
-                result[j] = result[j] +(Convert.ToInt32(b[j])-48) + (Convert.ToInt32(c[j])-48);
+                result[j] = result[j] +bb[j] + cc[j];
                 if (result[j]>9)
                 {
                     result[j] = result[j]- 10;
                     result[j+1] = 1;
-                    Console.WriteLine(j);
-                    Console.WriteLine(result[j]);
-                    Console.WriteLine(result[j+1]);
+                    
                 }
             }
             Array.Reverse(result);
-            for (int j = 0; j < count+1; j++)
+            for (int j = 0; j < a+1; j++)
             {
                 Console.Write(result[j]);
             }
         }
         static void Main(string[] args)
         {
+            long count = 0;
             string a = Console.ReadLine();
             string[] aa = a.Split();
-            char[] b = new char[10002];
-            b= aa[0].ToCharArray();
-            char[] c = new char[10002]; 
-            c= aa[1].ToCharArray();
-            Array.Reverse(b);
-            Array.Reverse(c);
-            plus(b, c);
+            StringBuilder b = new StringBuilder(aa[0]);
+            StringBuilder c = new StringBuilder(aa[1]);
+            if (b.Length>= c.Length)
+            {
+                count = b.Length;
+                for (int k = 0; k <= b.Length - c.Length; k++)
+                {
+                    c.Insert(k,"0");
+                }
+            }
+            else if (b.Length < c.Length)
+            {
+                count = c.Length;
+                for (int k = 0; k <= c.Length - b.Length; k++)
+                {
+                    b.Insert(k,"0");
+                }
+            }
+            string beta=b.ToString();
+            string ceta=c.ToString();
+
+            char[] bb = new char[b.Length];
+            bb = beta.ToCharArray();
+            char[] cc = new char[c.Length];
+            cc = ceta.ToCharArray();
+            Array.Reverse(bb);
+            Array.Reverse(cc);
+
+            plus(count,bb,cc);
         }
     }
 }
