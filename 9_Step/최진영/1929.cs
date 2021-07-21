@@ -11,48 +11,27 @@ namespace _1929
         static void Main(string[] args)
         {
             string nums = Console.ReadLine();
+            StringBuilder result = new StringBuilder();
             string[] num = nums.Split();
             int low = int.Parse(num[0]);
             int high = int.Parse(num[1]);
-            int number = high-low;
-            int[] a = new int[number+1];
-            int k =0;
-            for (int i = low; i <= high; i++)
+            int[] a = new int[1000001];
+            for (int i = 2; i <= high; i++)
             {
-                a[k] = i;
-                k++;
-            }
-
-
-            for (k = 2; k <= number; k++)
-            {
-                for (int j = 2 * k; j <= high; j += k)
+                for (int j = 2; i * j <=high; j++)
                 {
-                    for (int l = 0; l < number; l++)
-                    {
-                        
-                        if (a[l] == 0)
-                        {
-                            Console.WriteLine(j);
-                            continue;
-                        }
-                        else if (a[l] % j == 0)
-                        {
-                            a[l] = 0;
-                        }
-
-                    }
-
+                    a[i * j] = 1;
                 }
             }
-            for (int i = 0; i < number; i++)
+            a[1] = 1;
+            for (int k = low; k <= high; k++)
             {
-                if (a[i] != 0)
+                if (a[k]==0)
                 {
-                    Console.WriteLine(a[i]);
+                    result.Append(k+"\n");
                 }
             }
-
+            Console.Write(result.ToString());
         }
     }
 }
